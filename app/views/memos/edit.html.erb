@@ -1,0 +1,12 @@
+<h3>Edit Memo</h3>
+<%= form_for @memo, url: "/memos/#{@memo.id}", html: {method: :patch} do |f| %>
+  <div class="form-group">
+    <%= label_tag "form-title", "title" %>
+    <%= f.text_field :title, id:"form-title", class:"form-control",placeholder: "title" %>
+  </div>
+  <div class="form-group">
+    <%= label_tag "form-content", "content" %>
+    <%= f.text_field :body, id:"form-content", class:"form-control", placeholder: "content"%>
+  </div>
+  <%= f.submit "Update" , class: "btn btn-primary"%>
+<% end %>

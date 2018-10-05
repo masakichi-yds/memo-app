@@ -1,0 +1,21 @@
+<h3>Memo List</h3>
+<div class="row">
+  <% @memos.each do |memo| %>
+    <div class="col-sm-4">
+      <div class="card">
+        <div class="card-header bg-warning text-white">
+          <%= memo.title %>
+          <%= link_to "/memos/#{memo.id}/edit" do%>
+            <i class="fas fa-edit"></i>
+          <% end %>
+          <%= link_to "/memos/#{memo.id}", method: :delete do %>
+            <i class="fas fa-trash-alt"></i>
+          <% end %>
+        </div>
+        <div class="card-body">
+          <%= memo.body %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

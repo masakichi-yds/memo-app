@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>MemoApp</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+  <body>
+    <nav class="navbar navbar-light" style="background-color: #e3f2fd;">
+      <div class="float-left">
+        <%= link_to "MemoApp", "/", class:"navbar-brand"%>
+      </div>
+      <div class="float-right">
+        <div class="dropdown mr-1">
+          <%= link_to "Create Memo", "/memos/new", class:"navbar-brand"%>
+          <button type="button" class="btn btn-secondary dropdown-toggle" id="dropdownMenuOffset" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-offset="10,20">
+            Category
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuOffset">
+            <a class="dropdown-item" href="#">Work</a>
+            <a class="dropdown-item" href="#">Hobby</a>
+            <a class="dropdown-item" href="#">Life</a>
+            <a class="dropdown-item" href="#">Other</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <div class="container">
+      <%= yield %>
+    </div>
+  </body>
+</html>
