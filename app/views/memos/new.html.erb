@@ -8,5 +8,9 @@
     <%= label_tag "form-content", "content" %>
     <%= f.text_field :body, id:"form-content", class:"form-control", placeholder: "content"%>
   </div>
+  <div class="form-group">
+    <%= label_tag "form-category", "category" %>
+    <%= f.collection_select :category_id, @categories, :id, :name,{},{class:"form-control"} %>
+  </div>
   <%= f.submit "Create" , class: "btn btn-primary"%>
 <% end %>

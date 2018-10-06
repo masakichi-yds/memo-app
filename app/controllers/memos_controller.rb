@@ -5,6 +5,7 @@ class MemosController < ApplicationController
 
   def new
     @memo = Memo.new
+    @categories = Category.all
   end
 
   def create
@@ -31,7 +32,7 @@ class MemosController < ApplicationController
   private
 
   def memo_params
-    params.require(:memo).permit(:title,:body)
+    params.require(:memo).permit(:title,:body,:category_id)
   end
 
 
