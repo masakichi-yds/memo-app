@@ -19,10 +19,9 @@
             Category
           </button>
           <div class="dropdown-menu" aria-labelledby="dropdownMenuOffset">
-            <a class="dropdown-item" href="#">Work</a>
-            <a class="dropdown-item" href="#">Hobby</a>
-            <a class="dropdown-item" href="#">Life</a>
-            <a class="dropdown-item" href="#">Other</a>
+            <% @categories.each do |category| %>
+              <li><%= link_to category.name, "/categories/#{category.id}" %></li>
+            <% end %>
           </div>
         </div>
       </div>
