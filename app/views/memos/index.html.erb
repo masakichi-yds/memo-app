@@ -4,13 +4,16 @@
     <div class="col-sm-4">
       <div class="card">
         <div class="card-header bg-warning text-white">
-          <%= memo.title %>
-          <%= link_to "/memos/#{memo.id}/edit" do%>
-            <i class="fas fa-edit"></i>
-          <% end %>
-          <%= link_to "/memos/#{memo.id}", method: :delete do %>
-            <i class="fas fa-trash-alt"></i>
-          <% end %>
+          <h4><%= memo.title %></h4>
+          <p>カテゴリー未設定</p>
+          <div class="buttons">
+            <%= link_to "/memos/#{memo.id}/edit" do%>
+              <i class="fas fa-edit"></i>
+            <% end %>
+            <%= link_to "/memos/#{memo.id}", method: :delete do %>
+              <i class="fas fa-trash-alt"></i>
+            <% end %>
+          </div>
         </div>
         <div class="card-body">
           <%= memo.body %>
