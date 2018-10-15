@@ -13,19 +13,32 @@
         <%= link_to "MemoApp", "/", class:"navbar-brand"%>
       </div>
       <div class="float-right">
-        <div class="dropdown mr-1">
+        <% if @current_user %>
+          <%= link_to "Memo Index", "/memos/index", class:"navbar-brand" %>
           <%= link_to "Create Memo", "/memos/new", class:"navbar-brand"%>
-          <button type="button" class="btn btn-secondary dropdown-toggle" id="dropdownMenuOffset" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-offset="10,20">
-            Category
-          </button>
-          <div class="dropdown-menu" aria-labelledby="dropdownMenuOffset">
-            <% @categories.each do |category| %>
-              <li><%= link_to category.name, "/categories/#{category.id}" %></li>
-            <% end %>
+          <%= link_to "ユーザー情報", "/users/#{@current_user.id}",class:"navbar-brand" %>
+          <%= link_to "ログアウト", "/logout", method: :post,class: "navbar-brand"%>
+          <div class="dropdown mr-1 navbar-brand">
+            <button type="button" class="btn btn-secondary dropdown-toggle" id="dropdownMenuOffset" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-offset="10,20">
+              Category
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuOffset">
+              <% @categories.each do |category| %>
+                <li><%= link_to category.name, "/categories/#{category.id}" %></li>
+              <% end %>
+            </div>
           </div>
-        </div>
+        <% else %>
+          <%= link_to "MemoAppとは", "/about", class:"navbar-brand" %>
+          <%= link_to "ログイン", "/login", class:"navbar-brand" %>
+        <% end %>
       </div>
     </nav>
+    <% if flash[:notice] %>
+     <div class = "flash">
+       <%= flash[:notice] %>
+     </div>
+    <% end %>
     <div class="container">
       <%= yield %>
     </div>
