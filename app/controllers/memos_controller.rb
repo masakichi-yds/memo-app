@@ -9,8 +9,13 @@ class MemosController < ApplicationController
   end
 
   def create
-    Memo.create(memo_params)
-    redirect_to '/'
+    @memo = Memo.new(memo_params)
+    if @memo.save
+      flash[:notice] = "メモを作成しました"
+      redirect_to '/memos/index'
+    else
+      render "memos/new"
+    end
   end
 
   def edit
@@ -18,15 +23,23 @@ class MemosController < ApplicationController
   end
 
   def update
-    memo = Memo.find(params[:id])
-    memo.update(memo_params)
-    redirect_to "/"
+    @memo = Memo.find(params[:id])
+    @memo.title = memo_params[:title]
+    @memo.body = memo_params[:body]
+    @memo.category_id = memo_params[:category_id]
+    if @memo.save
+      flash[:notice] = "メモを更新しました"
+      redirect_to "/memos/index"
+    else
+      render "memos/edit"
+    end
   end
 
   def destroy
     memo = Memo.find(params[:id])
     memo.destroy
-    redirect_to "/"
+    flash[:notice] = "メモを削除しました"
+    redirect_to "/memos/index"
   end
 
   private

@@ -1,0 +1,17 @@
+<h3>Signup</h3>
+<%= form_for @user, url: "/users", html: {method: :post} do |f| %>
+  <% @user.errors.full_messages.each do |message| %>
+    <div class = "form-error">
+      <%= message %>
+    </div>
+  <% end %>
+  <div class="form-group">
+    <%= label_tag "form-email", "email" %>
+    <%= f.text_field :email, id:"form-email", class:"form-control" %>
+  </div>
+  <div class="form-group">
+    <%= label_tag "form-password", "password" %>
+    <%= f.password_field :password, id:"form-content", class:"form-control" %>
+  </div>
+  <%= f.submit "Signup" , class: "btn btn-primary"%>
+<% end %>

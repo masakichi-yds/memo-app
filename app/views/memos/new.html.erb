@@ -1,8 +1,13 @@
 <h3>Create Memo</h3>
 <%= form_for @memo, url: "/memos", html: {method: :post} do |f| %>
+  <% @memo.errors.full_messages.each do |message| %>
+    <div class = "form-error">
+      <%= message %>
+    </div>
+  <% end %>
   <div class="form-group">
     <%= label_tag "form-title", "title" %>
-    <%= f.text_field :title, id:"form-title", class:"form-control",placeholder: "title" %>
+    <%= f.text_field :title, id:"form-title", class:"form-control", placeholder: "title"%>
   </div>
   <div class="form-group">
     <%= label_tag "form-content", "content" %>
