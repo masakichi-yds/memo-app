@@ -1,4 +1,7 @@
 class UsersController < ApplicationController
+  before_action :ensure_correct_user, {only:[:show,:edit]}
+  before_action :authenticate_user, {only: [:show,:edit]}
+  before_action :forbid_login_user, {only: [:login_form,:new]}
 
   def login_form
     @user = User.new
@@ -61,6 +64,12 @@ class UsersController < ApplicationController
     end
   end
 
+ def ensure_correct_user
+   if @current_user.id != params[:id].to_i
+     flash[:notice] = "権限がありません"
+     redirect_to "/memos/index"
+   end
+ end
 
   private
 
