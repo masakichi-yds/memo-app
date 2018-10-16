@@ -1,4 +1,4 @@
-<h3>Login</h3>
+<h3>ログイン</h3>
 <%= form_for @user, url: "/login", html: {method: :post} do |f| %>
   <% if @error_message %>
     <div class = "form-error">
@@ -13,8 +13,9 @@
     <%= label_tag "form-password", "password" %>
     <%= f.password_field :password, id:"form-content", class:"form-control" %>
   </div>
-  <%= f.submit "Login" , class: "btn btn-primary"%>
+  <%= f.submit "ログイン" , class: "btn btn-primary"%>
 <% end %>
-
-<p>ユーザー登録がまだの方はこちら</p>
-<%= link_to "Signup", "/signup", class:"btn btn-warning" %>
+<div class = "signup_yet">
+  <p>ユーザー登録がまだの方はこちら</p>
+  <%= link_to "新規登録", "/signup", class:"btn btn-warning" %>
+</div>

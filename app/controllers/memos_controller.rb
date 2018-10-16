@@ -1,11 +1,11 @@
 class MemosController < ApplicationController
+
   def index
-    @memos = Memo.all
+    @memos = Memo.where(user_id: @current_user.id)
   end
 
   def new
     @memo = Memo.new
-    @categories = Category.all
   end
 
   def create
@@ -45,7 +45,7 @@ class MemosController < ApplicationController
   private
 
   def memo_params
-    params.require(:memo).permit(:title,:body,:category_id)
+    params.require(:memo).permit(:title,:body,:category_id).merge(user_id: @current_user.id)
   end
 
 
