@@ -1,4 +1,4 @@
-<h3>Edit Memo</h3>
+<h3>メモ編集</h3>
 <%= form_for @memo, url: "/memos/#{@memo.id}", html: {method: :patch} do |f| %>
   <% @memo.errors.full_messages.each do |message| %>
     <div class = "form-error">
@@ -17,5 +17,5 @@
     <%= label_tag "form-category", "category" %>
     <%= f.collection_select :category_id, @categories, :id, :name,{},{class:"form-control"} %>
   </div>
-  <%= f.submit "Update" , class: "btn btn-primary"%>
+  <%= f.submit "更新" , class: "btn btn-primary"%>
 <% end %>

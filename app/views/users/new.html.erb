@@ -1,4 +1,4 @@
-<h3>Signup</h3>
+<h3>ユーザー新規登録</h3>
 <%= form_for @user, url: "/users", html: {method: :post} do |f| %>
   <% @user.errors.full_messages.each do |message| %>
     <div class = "form-error">
@@ -13,5 +13,5 @@
     <%= label_tag "form-password", "password" %>
     <%= f.password_field :password, id:"form-content", class:"form-control" %>
   </div>
-  <%= f.submit "Signup" , class: "btn btn-primary"%>
+  <%= f.submit "登録" , class: "btn btn-primary"%>
 <% end %>

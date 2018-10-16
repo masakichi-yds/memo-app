@@ -31,10 +31,7 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new(
-      email: user_params[:email],
-      password: user_params[:password]
-    )
+    @user = User.new(user_params)
     if @user.save
       session[:user_id] = @user.id
       flash[:notice] = "ユーザー登録が完了しました"

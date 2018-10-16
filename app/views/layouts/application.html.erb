@@ -14,13 +14,13 @@
       </div>
       <div class="float-right">
         <% if @current_user %>
-          <%= link_to "Memo Index", "/memos/index", class:"navbar-brand" %>
-          <%= link_to "Create Memo", "/memos/new", class:"navbar-brand"%>
+          <%= link_to "ToDoリスト", "/memos/index", class:"navbar-brand" %>
+          <%= link_to "新規メモ作成", "/memos/new", class:"navbar-brand"%>
           <%= link_to "ユーザー情報", "/users/#{@current_user.id}",class:"navbar-brand" %>
           <%= link_to "ログアウト", "/logout", method: :post,class: "navbar-brand"%>
           <div class="dropdown mr-1 navbar-brand">
             <button type="button" class="btn btn-secondary dropdown-toggle" id="dropdownMenuOffset" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-offset="10,20">
-              Category
+              カテゴリー
             </button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuOffset">
               <% @categories.each do |category| %>
