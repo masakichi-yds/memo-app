@@ -8,11 +8,8 @@ class UsersController < ApplicationController
   end
 
   def login
-    @user = User.find_by(
-      email: user_params[:email],
-      password: user_params[:password]
-    )
-    if @user
+    @user = User.find_by(email: user_params[:email])
+    if @user && @user.authenticate(user_params[:password])
       session[:user_id] = @user.id
       flash[:notice] = "ログインしました"
       redirect_to "/memos/index"
