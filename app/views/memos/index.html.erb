@@ -1,24 +1,24 @@
-  <h3>ToDoリスト</h3>
-  <div class="row">
-    <% @memos.each do |memo| %>
-      <div class="col-sm-4">
-        <div class="card">
-          <div class="card-header bg-warning text-white">
-            <h4><%= memo.title %></h4>
-            <p><%= memo.category.name %></p>
-            <div class="buttons">
-              <%= link_to "/memos/#{memo.id}/edit" do%>
-                <i class="fas fa-edit"></i>
-              <% end %>
-              <%= link_to "/memos/#{memo.id}", method: :delete do %>
-                <i class="fas fa-trash-alt"></i>
-              <% end %>
-            </div>
-          </div>
-          <div class="card-body">
-            <%= memo.body %>
+<h3>ToDoリスト</h3>
+<div class="row">
+  <% @memos.each do |memo| %>
+    <div class="col-sm-4">
+      <div class="card">
+        <div class="card-header bg-warning text-white">
+          <h4><%= memo.title %></h4>
+          <p><%= memo.category.name %></p>
+          <div class="buttons">
+            <%= link_to "/memos/#{memo.id}/edit" do%>
+              <i class="fas fa-edit"></i>
+            <% end %>
+            <%= link_to "/memos/#{memo.id}", method: :delete do %>
+              <i class="fas fa-trash-alt"></i>
+            <% end %>
           </div>
         </div>
+        <div class="card-body">
+          <%= memo.body %>
+        </div>
       </div>
-    <% end %>
-  </div>
+    </div>
+  <% end %>
+</div>
