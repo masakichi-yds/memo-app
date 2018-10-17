@@ -49,5 +49,4 @@ class MemosController < ApplicationController
     params.require(:memo).permit(:title,:body,:category_id).merge(user_id: @current_user.id)
   end
 
-
 end
