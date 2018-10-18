@@ -9,17 +9,19 @@
   </head>
   <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light" style="background-color: #e3f2fd;">
-      <%= link_to "MemoApp", "/", class:"navbar-brand"%>
+      <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+        <li class="nav-item"><%= link_to "MemoApp", "/", class:"navbar-brand"%></li>
+      </ul>
       <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#Navber" aria-controls="Navber" aria-expanded="false" aria-label="レスポンシブ・ナビゲーションバー">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="Navber">
         <% if @current_user %>
-          <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-            <%= link_to "ToDoリスト", "/memos", class:"navbar-brand" %>
-            <%= link_to "新規メモ作成", "/memos/new", class:"navbar-brand"%>
-            <%= link_to "ユーザー情報", "/users/#{@current_user.id}",class:"navbar-brand" %>
-            <%= link_to "ログアウト", "/logout", method: :post,class: "navbar-brand"%>
+          <ul class="navbar-nav mt-2 mt-lg-0">
+            <li class="nav-item"><%= link_to "ToDoリスト", "/memos", class:"navbar-brand" %></li>
+            <li class="nav-item"><%= link_to "新規メモ作成", "/memos/new", class:"navbar-brand"%></li>
+            <li class="nav-item"><%= link_to "ユーザー情報", "/users/#{@current_user.id}",class:"navbar-brand" %></li>
+            <li class="nav-item"><%= link_to "ログアウト", "/logout", method: :post,class: "navbar-brand"%></li>
             <div class="dropdown mr-1 navbar-brand">
               <button type="button" class="btn btn-secondary dropdown-toggle" id="dropdownMenuOffset" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-offset="10,20">
                 カテゴリー
@@ -33,8 +35,8 @@
           </ul>
         <% else %>
           <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-            <%= link_to "MemoAppとは", "/about", class:"navbar-brand" %>
-            <%= link_to "ログイン", "/login", class:"navbar-brand" %>
+            <li class="nav-item"><%= link_to "MemoAppとは", "/about", class:"navbar-brand" %></li>
+            <li class="nav-item"><%= link_to "ログイン", "/login", class:"navbar-brand" %></li>
           </ul>
         <% end %>
       </div>
