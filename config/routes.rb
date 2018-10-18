@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get "/" => "homes#index"
+  root to: "homes#top"
   get "/about" => "homes#about"
 
   #get "/memos" => "memos#index"
@@ -21,5 +21,6 @@ Rails.application.routes.draw do
   #get "users/:id/edit" => "users#edit"
   #patch "/users/:id" => "users#update"
   resources :users
+
 
 end
