@@ -17,11 +17,11 @@
       </button>
       <div class="collapse navbar-collapse" id="Navber">
         <% if @current_user %>
-          <ul class="navbar-nav mt-2 mt-lg-0">
-            <li class="nav-item"><%= link_to "ToDoリスト", "/memos", class:"navbar-brand" %></li>
-            <li class="nav-item"><%= link_to "新規メモ作成", "/memos/new", class:"navbar-brand"%></li>
-            <li class="nav-item"><%= link_to "ユーザー情報", "/users/#{@current_user.id}",class:"navbar-brand" %></li>
-            <li class="nav-item"><%= link_to "ログアウト", "/logout", method: :post,class: "navbar-brand"%></li>
+          <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <li class="nav-item"><%= link_to "ToDoリスト", memos_path, class:"navbar-brand" %></li>
+            <li class="nav-item"><%= link_to "新規メモ作成", new_memo_path, class:"navbar-brand"%></li>
+            <li class="nav-item"><%= link_to "ユーザー情報", user_path(@current_user.id),class:"navbar-brand" %></li>
+            <li class="nav-item"><%= link_to "ログアウト", logout_path, method: :post,class: "navbar-brand"%></li>
             <div class="dropdown mr-1 navbar-brand">
               <button type="button" class="btn btn-secondary dropdown-toggle" id="dropdownMenuOffset" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-offset="10,20">
                 カテゴリー
@@ -35,8 +35,8 @@
           </ul>
         <% else %>
           <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-            <li class="nav-item"><%= link_to "MemoAppとは", "/about", class:"navbar-brand" %></li>
-            <li class="nav-item"><%= link_to "ログイン", "/login", class:"navbar-brand" %></li>
+            <li class="nav-item"><%= link_to "MemoAppとは", about_path, class:"navbar-brand" %></li>
+            <li class="nav-item"><%= link_to "ログイン", login_path, class:"navbar-brand" %></li>
           </ul>
         <% end %>
       </div>

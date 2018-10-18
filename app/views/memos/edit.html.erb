@@ -1,5 +1,5 @@
 <h3>メモ編集</h3>
-<%= form_for @memo, url: "/memos/#{@memo.id}", html: {method: :patch} do |f| %>
+<%= form_for @memo, url: memo_path(@memo.id), html: {method: :patch} do |f| %>
   <% @memo.errors.full_messages.each do |message| %>
     <div class = "form-error">
       <%= message %>
