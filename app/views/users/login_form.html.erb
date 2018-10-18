@@ -1,5 +1,5 @@
 <h3>ログイン</h3>
-<%= form_for @user, url: "/login", html: {method: :post} do |f| %>
+<%= form_for @user, url: login_path, html: {method: :post} do |f| %>
   <% if @error_message %>
     <div class = "form-error">
       <%= @error_message %>
@@ -15,7 +15,4 @@
   </div>
   <%= f.submit "ログイン" , class: "btn btn-primary"%>
 <% end %>
-<div class = "signup_yet">
-  <p>ユーザー登録がまだの方はこちら</p>
-  <%= link_to "新規登録", "/signup", class:"btn btn-warning" %>
-</div>
+  <p><%= link_to "ユーザー登録がまだの方はこちら", new_user_path, class:"signup_yet"%></p>

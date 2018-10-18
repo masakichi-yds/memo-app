@@ -1,5 +1,5 @@
 <h3>新規メモ作成</h3>
-<%= form_for @memo, url: "/memos", html: {method: :post} do |f| %>
+<%= form_for @memo, url: memos_path, html: {method: :post} do |f| %>
   <% @memo.errors.full_messages.each do |message| %>
     <div class = "form-error">
       <%= message %>

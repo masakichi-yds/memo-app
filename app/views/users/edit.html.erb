@@ -1,5 +1,5 @@
 <h3>ユーザー情報編集</h3>
-<%= form_for @user, url: "/users/#{@user.id}", html: {method: :patch} do |f| %>
+<%= form_for @user, url: user_path(@user.id), html: {method: :patch} do |f| %>
   <% @user.errors.full_messages.each do |message| %>
     <div class = "form-error">
       <%= message %>
