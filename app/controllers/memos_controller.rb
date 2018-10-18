@@ -13,7 +13,7 @@ class MemosController < ApplicationController
     @memo = Memo.new(memo_params)
     if @memo.save
       flash[:notice] = "メモを作成しました"
-      redirect_to '/memos/index'
+      redirect_to '/memos'
     else
       render "memos/new"
     end
@@ -30,7 +30,7 @@ class MemosController < ApplicationController
     @memo.category_id = memo_params[:category_id]
     if @memo.save
       flash[:notice] = "メモを更新しました"
-      redirect_to "/memos/index"
+      redirect_to "/memos"
     else
       render "memos/edit"
     end
@@ -40,7 +40,7 @@ class MemosController < ApplicationController
     memo = Memo.find(params[:id])
     memo.destroy
     flash[:notice] = "メモを削除しました"
-    redirect_to "/memos/index"
+    redirect_to "/memos"
   end
 
   private

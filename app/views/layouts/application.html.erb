@@ -16,7 +16,7 @@
       <div class="collapse navbar-collapse" id="Navber">
         <% if @current_user %>
           <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-            <%= link_to "ToDoリスト", "/memos/index", class:"navbar-brand" %>
+            <%= link_to "ToDoリスト", "/memos", class:"navbar-brand" %>
             <%= link_to "新規メモ作成", "/memos/new", class:"navbar-brand"%>
             <%= link_to "ユーザー情報", "/users/#{@current_user.id}",class:"navbar-brand" %>
             <%= link_to "ログアウト", "/logout", method: :post,class: "navbar-brand"%>

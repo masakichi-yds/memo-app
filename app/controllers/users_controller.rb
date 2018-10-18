@@ -12,7 +12,7 @@ class UsersController < ApplicationController
     if @user && @user.authenticate(user_params[:password])
       session[:user_id] = @user.id
       flash[:notice] = "ログインしました"
-      redirect_to "/memos/index"
+      redirect_to "/memos"
     else
       @error_message = "メールアドレスまたはパスワードが間違っています"
       @user = User.new
@@ -35,7 +35,7 @@ class UsersController < ApplicationController
     if @user.save
       session[:user_id] = @user.id
       flash[:notice] = "ユーザー登録が完了しました"
-      redirect_to "/memos/index"
+      redirect_to "/memos"
     else
       render "users/new"
     end
@@ -64,7 +64,7 @@ class UsersController < ApplicationController
   def ensure_correct_user
     if @current_user.id != params[:id].to_i
       flash[:notice] = "権限がありません"
-      redirect_to "/memos/index"
+      redirect_to "/memos"
     end
   end
 
