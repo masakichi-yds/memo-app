@@ -1,7 +1,7 @@
 class HomesController < ApplicationController
   before_action :forbid_login_user, {only: [:about]}
 
-  def index
+  def top
   end
 
   def about
